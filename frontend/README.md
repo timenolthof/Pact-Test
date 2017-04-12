@@ -12,12 +12,17 @@ Frontend for Stocks information.
 
 #### Installation / Development
 
-0. Install prerequisites
-1. `npm install`
-1. `npm start`
-2. Open the frontend in a browser
+Install prerequisites and then run the following commands from within the frontend directory:
+
+  $ `npm install`
+  $ `npm start`
+
+Next open a browser and browse to [http://localhost:8000](http://localhost:8000)
 
 #### Tests
 
-To run the frontend tests: `npm test`.
-This will also generate/update the Consumer Driven Contract in the `pacts` folder.
+To run the frontend tests and generate the Consumer Driven Contract:
+
+  $ `npm test`.
+
+This will generate/update the Consumer Driven Contract in the `pacts` folder.
