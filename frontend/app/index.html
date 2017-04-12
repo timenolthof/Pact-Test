@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="stocksApp">
+  <head>
+    <meta charset="utf-8">
+    <title>StocksApp</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <script src="modules/stock/index.js"></script>
+    <script src="modules/stock/stock-service.js"></script>
+    <script src="modules/stock/stock-list-controller.js"></script>
+
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+
+    <div ng-controller="StockListController as stockListController" class="container">
+      <h2>List of stocks</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>currentPrice</th>
+            <th>lastUpdate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="stock in stockListController.stockList">
+            <td>{{stock.id}}</td>
+            <td>{{stock.name}}</td>
+            <td>{{stock.currentPrice}}</td>
+            <td>{{stock.lastUpdate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </body>
+</html>
