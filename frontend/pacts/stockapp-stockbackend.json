@@ -1,0 +1,58 @@
+{
+  "consumer": {
+    "name": "StockApp"
+  },
+  "provider": {
+    "name": "StockBackend"
+  },
+  "interactions": [
+    {
+      "description": "a request for all stocks",
+      "request": {
+        "method": "GET",
+        "path": "/api/stocks"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/hal+json;charset=UTF-8"
+        },
+        "body": {
+          "_embedded": {
+            "stocks": [
+              {
+                "id": 1,
+                "name": "Tesla",
+                "currentPrice": 42.42,
+                "lastUpdate": "1997-07-16T19:20:30.45+01:00"
+              }
+            ]
+          }
+        },
+        "matchingRules": {
+          "$.body._embedded.stocks": {
+            "min": 1
+          },
+          "$.body._embedded.stocks[*].*": {
+            "match": "type"
+          },
+          "$.body._embedded.stocks[*].id": {
+            "match": "type"
+          },
+          "$.body._embedded.stocks[*].name": {
+            "match": "type"
+          },
+          "$.body._embedded.stocks[*].currentPrice": {
+            "match": "type"
+          },
+          "$.body._embedded.stocks[*].lastUpdate": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "2.0.0"
+  }
+}
