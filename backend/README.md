@@ -14,15 +14,15 @@ Backend for Stocks information.
 
 Install prerequisites and then run the app by executing the following command from within the backend directory:
 
-  $ `gradle bootRun`
+    $ `gradle bootRun`
 
 #### Verify pacts
 
 First build a jar and start it:
 
-  $ `gradle assemble`
-  $ `java -jar build/libs/backend-0.0.1-SNAPSHOT.jar`
+    $ `gradle assemble`
+    $ `java -jar build/libs/backend-0.0.1-SNAPSHOT.jar`
 
 Then in another terminal run:
 
-  $ `gradle pactVerify`
+    $ `gradle pactVerify`

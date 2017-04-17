@@ -8,11 +8,12 @@
     StockService
       .getAll()
       .then(
-        function (response) {
-          vm.stockList = response.data._embedded.stocks;
+        function (stocks) {
+          vm.stockList = stocks;
         },
         function (error) {
-          vm.error = error;
+          console.error(error);
+          vm.error = error.message;
         }
       );
   }
