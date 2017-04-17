@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 
     <script src="modules/stock/index.js"></script>
+    <script src="modules/stock/stock-model.js"></script>
     <script src="modules/stock/stock-service.js"></script>
     <script src="modules/stock/stock-list-controller.js"></script>
 
@@ -40,6 +41,8 @@
           </tr>
         </tbody>
       </table>
+
+      <p ng-if="stockListController.error">{{ stockListController.error }}</p>
     </div>
 
   </body>

@@ -2,13 +2,14 @@
   'use strict';
 
   describe('StockService', function () {
-    let StockService, provider, tester;
+    let StockService, Stock, provider, tester;
 
     let somethingLike = Pact.Matchers.somethingLike;
     let eachLike      = Pact.Matchers.eachLike;
 
     beforeAll(function () {
       tester = ngMidwayTester('stockModule');
+      Stock = tester.inject('Stock');
       StockService = tester.inject('StockService');
       StockService.setBaseUrl('http://localhost:1234');
 
@@ -66,13 +67,10 @@
         StockService
           .getAll()
           .then(
-            function (response) {
-              expect(response.data._embedded.stocks).toEqual([{
-                id: 1,
-                name: "Tesla",
-                currentPrice: 42.42,
-                lastUpdate: "1997-07-16T19:20:30.45+01:00"
-              }]);
+            function (stocks) {
+              expect(stocks).toEqual([
+                new Stock(1, "Tesla", 42.42, "1997-07-16T19:20:30.45+01:00")
+              ]);
               done();
             },
             function (error) {
